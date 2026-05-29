@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter K. Hoffmann | Immigration Appeals Attorney - Boston</title>
+    <meta name="description" content="Immigration appeals specialist. 25+ years representing businesses and individuals in U.S. immigration proceedings.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #293e49;
+            --primary-darker: #203641;
+            --accent-gray: #949fa4;
+            --light-bg: #f5f6f7;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #666;
+            --border-light: #e8e8e8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        header {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            border-bottom: 3px solid var(--accent-gray);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .header-left .title {
+            font-size: 0.95rem;
+            color: var(--accent-gray);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .header-left .location {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .contact-line {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-line a {
+            color: var(--accent-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-line a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .header-right {
+                text-align: center;
+            }
+
+            .header-left h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Hero / Intro Section */
+        .intro {
+            background: var(--light-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .intro h2 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 2rem 4rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        @media (min-width: 769px) {
+            .about {
+                padding: 3rem 2rem;
+            }
+        }
+
+        .about-layout {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-photo {
+                order: -1;
+            }
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .credential-block {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .credential-block:last-child {
+            border-bottom: none;
+        }
+
+        .credential-block strong {
+            color: var(--primary-dark);
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .credential-block span {
+            color: var(--accent-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 3rem 2rem;
+            background: var(--light-bg);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .services h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-left: 3px solid var(--primary-dark);
+            transition: box-shadow 0.2s;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .service-item h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 3rem 2rem;
+        }
+
+        .contact h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .contact-method {
+            text-align: center;
+        }
+
+        .contact-method strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .contact-method a:hover {
+            color: var(--accent-gray);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: var(--white);
+            color: var(--text-dark);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-dark);
+            box-shadow: inset 0 0 0 2px rgba(41, 62, 73, 0.05);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-darker);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--accent-gray);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--accent-gray);
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent-gray);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        footer a {
+            color: var(--accent-gray);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-light);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1>Peter K. Hoffmann</h1>
+                <div class="title">Immigration Appeals Specialist</div>
+                <div class="location">Boston, Massachusetts</div>
+            </div>
+            <div class="header-right">
+                <div class="contact-line">
+                    <a href="tel:+16175232900">(617) 523-2900</a>
+                </div>
+                <div class="contact-line">
+                    <a href="mailto:pkh@pkhlaw.com">pkh@pkhlaw.com</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Intro Section -->
+        <section class="intro">
+            <h2>Immigration Appeals & Visa Services</h2>
+            <p>25+ years representing businesses, employees, and families in U.S. immigration proceedings. Based in Boston, serving clients worldwide.</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="about-layout">
+                <div class="about-text">
+                    <h3>About</h3>
+                    <p>Peter K. Hoffmann founded his practice in 2003, bringing two decades of dedicated experience in immigration law. His practice specializes in immigration appeals and represents clients globally in all aspects of U.S. immigration matters—from complex visa petitions to appellate proceedings. Peter combines deep legal expertise with a strategic, data-driven approach to complex immigration challenges.</p>
+
+                    <div class="credentials">
+                        <div class="credential-block">
+                            <strong>Education</strong>
+                            <span>Boston University School of Law (J.D.)<br>Colby College (B.A., Economics & Russian Language)</span>
+                        </div>
+                        <div class="credential-block">
+                            <strong>Background</strong>
+                            <span>Law Clerk, Massachusetts Appeals Court<br>Associate, Partridge Snow & Hahn LLP</span>
+                        </div>
+                        <div class="credential-block">
+                            <strong>Languages</strong>
+                            <span>English (Native)<br>Russian (Full Professional)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-photo">
+                    <img src="PKH_Headshot.jpeg" alt="Peter K. Hoffmann, Immigration Attorney">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h3>Services</h3>
+            <div class="services-list">
+                <div class="service-item">
+                    <h4>Immigration Appeals</h4>
+                    <p>Appellate representation before the Board of Immigration Appeals (BIA) and Federal Courts for denied visa applications, green card petitions, and other immigration matters.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Employment-Based Visas & Immigration</h4>
+                    <p>H-1B, L-1, EB-1, EB-2, EB-3, and other employment-based visa sponsorships and green card petitions for businesses and professionals.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Family-Based Immigration</h4>
+                    <p>Family reunification, spousal sponsorship, fiancé visas, and family-based green card petitions to bring family members to the United States.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h3>Contact</h3>
+
+            <div class="contact-form">
+                <h4>Send a Message</h4>
+                <form action="https://formspree.io/f/maqkkyzy" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
+                <div class="form-note">We'll respond within 24-48 hours</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Law Office of Peter K. Hoffmann, PC</p>
+        <p style="font-size: 0.85rem;">Boston, Massachusetts</p>
+    </footer>
+</body>
+</html>

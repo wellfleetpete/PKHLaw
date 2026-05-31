@@ -464,14 +464,6 @@
                 <div class="title">Immigration Appeals Specialist</div>
                 <div class="location">Boston, Massachusetts</div>
             </div>
-            <div class="header-right">
-                <div class="contact-line">
-                    <a href="tel:+16175232900">(617) 523-2900</a>
-                </div>
-                <div class="contact-line">
-                    <a href="mailto:pkh@pkhlaw.com">pkh@pkhlaw.com</a>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -588,14 +580,14 @@
                         return response.json().then(function (data) {
                             var msg = (data && data.errors)
                                 ? data.errors.map(function (er) { return er.message; }).join(', ')
-                                : 'Something went wrong. Please email pkh@pkhlaw.com directly.';
+                                : 'Something went wrong. Please try again in a moment.';
                             status.className = 'form-status error';
                             status.textContent = msg;
                         });
                     }
                 }).catch(function () {
                     status.className = 'form-status error';
-                    status.textContent = 'Network error. Please email pkh@pkhlaw.com directly.';
+                    status.textContent = 'Network error. Please try again in a moment.';
                 }).finally(function () {
                     if (btn) { btn.disabled = false; btn.textContent = btnText; }
                 });

@@ -380,6 +380,34 @@
             margin-top: 1rem;
         }
 
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .form-status.success {
+            display: block;
+            background: #e8f3ec;
+            color: #1d6b3f;
+            border: 1px solid #b7ddc4;
+        }
+
+        .form-status.error {
+            display: block;
+            background: #fbeaea;
+            color: #9b2226;
+            border: 1px solid #e6b8ba;
+        }
+
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -507,7 +535,7 @@
 
             <div class="contact-form">
                 <h4>Send a Message</h4>
-                <form action="https://formspree.io/f/maqkkyzy" method="POST">
+                <form action="https://formspree.io/f/maqkkyzy" method="POST" id="contact-form">
                     <div class="form-group">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -522,6 +550,7 @@
                     </div>
                     <button type="submit" class="submit-btn">Send</button>
                 </form>
+                <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
                 <div class="form-note">We'll respond within 24-48 hours</div>
             </div>
         </section>
@@ -532,5 +561,46 @@
         <p>&copy; 2024 Law Office of Peter K. Hoffmann, PC</p>
         <p style="font-size: 0.85rem;">Boston, Massachusetts</p>
     </footer>
+
+    <script>
+        (function () {
+            var form = document.getElementById('contact-form');
+            var status = document.getElementById('form-status');
+            if (!form || !status) return;
+            var btn = form.querySelector('.submit-btn');
+            var btnText = btn ? btn.textContent : 'Send';
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                status.className = 'form-status';
+                if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (response) {
+                    if (response.ok) {
+                        form.reset();
+                        status.className = 'form-status success';
+                        status.textContent = 'Thank you — your message has been sent. We’ll respond within 24–48 hours.';
+                    } else {
+                        return response.json().then(function (data) {
+                            var msg = (data && data.errors)
+                                ? data.errors.map(function (er) { return er.message; }).join(', ')
+                                : 'Something went wrong. Please email pkh@pkhlaw.com directly.';
+                            status.className = 'form-status error';
+                            status.textContent = msg;
+                        });
+                    }
+                }).catch(function () {
+                    status.className = 'form-status error';
+                    status.textContent = 'Network error. Please email pkh@pkhlaw.com directly.';
+                }).finally(function () {
+                    if (btn) { btn.disabled = false; btn.textContent = btnText; }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
